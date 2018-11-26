@@ -54,12 +54,27 @@
 //   return _curriedSum;
 // }
 
+// Function.prototype.curry = function(numArgs) {
+//   let nums = [];
+//   let func = this;
+//
+//   const _curriedSum = function () {
+//     let args = Array.from(arguments);
+//     nums = nums.concat(args);
+//     if (nums.length >= numArgs){
+//       return func.apply(func, nums);
+//     } else {
+//       return _curriedSum;
+//     }
+//   };
+//   return _curriedSum;
+// };
+
 Function.prototype.curry = function(numArgs) {
   let nums = [];
   let func = this;
 
-  const _curriedSum = function () {
-    let args = Array.from(arguments);
+  const _curriedSum = function (...args) {
     nums = nums.concat(args);
     if (nums.length >= numArgs){
       return func.apply(func, nums);
